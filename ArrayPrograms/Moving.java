@@ -1,5 +1,5 @@
 package ArrayPrograms;
-
+// Move all negative numbers to beginning and positive to end
 public class Moving {
     static  int move (int[] arr){
         int j=0;
