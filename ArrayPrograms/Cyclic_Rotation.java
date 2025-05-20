@@ -1,6 +1,6 @@
 package ArrayPrograms;
 
-public class Cyclic_Rotation {
+public class Cyclic_Rotation {//Cyclically rotate an array by one
     public static void main(String[] args) {
         int arr[]={1,2,3,4,5};
         int LastValue =arr[arr.length-1];
