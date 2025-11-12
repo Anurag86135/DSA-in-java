@@ -1,30 +1,57 @@
-package ArrayPrograms;
-
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class kthmaxmin {
-    public int findthlargest( int[] nums,int k){
-        Arrays.sort(nums);
-        return nums[nums.length-k];
+    static void printArray(int[] arr){
+    for(int i=0;i<arr.length;i++){
+        System.out.print(arr[i]+" ");
     }
-    public int findkthSmallest(int[] nums,int k){
-        Arrays.sort(nums);
-        return nums[k-1];
+}
 
+void bubbleSort(int[] arr){
+    int n=arr.length;
+
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-i-1;j++){
+            if (arr[j]>arr[j+1]){
+                int temp =arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
     }
-    public static void main(String[] args) {
-        kthmaxmin obj=new kthmaxmin();
-        // Example of arrays and values
-        int [] nums={3,2,1,5,6,4};
-        int kLargest=2;
-        int kSmallest=3;
+}
+void kmaxmin(int arr[]){
+    System.out.println();
+    System.out.println("Enter the value of k:");
+    Scanner sc=new Scanner(System.in);
+    int k=sc.nextInt();
+    bubbleSort(arr);
 
-        //finding the k-th largest and k-th smallest 
-         kLargest=obj.findthlargest(nums,kLargest);
-         kSmallest=obj.findkthSmallest(nums,kSmallest);
+    int kMin=arr[k-1];
+    int kMax=arr[arr.length-k];
 
-        //printing results
-        System.out.println("The"+kLargest+ " -th largest element is :" +kLargest);
-        System.out.println("The "+kSmallest+ "-th Smallest element is :"+kSmallest);
-    }
+    System.out.println(k+" th smallest element : "+kMin);
+    System.out.println(k+ " th largest element  : "+kMax );
+
+
+
+}
+
+ public static void main(String[] args) {
+    kthmaxmin k=new kthmaxmin();
+
+    int arr[]={22,1,33,2,4,55,90};
+
+    System.out.println("Original Array");
+    printArray(arr);
+
+    k.bubbleSort(arr);// for sorting the  array
+
+    System.out.println("Sorted Array");
+    printArray(arr);
+
+   k.kmaxmin(arr);
+
+ }
+    
 }
